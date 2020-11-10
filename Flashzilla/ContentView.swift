@@ -9,21 +9,19 @@ import CoreHaptics
 import SwiftUI
 
 struct ContentView: View {
-    @State private var whatever = ""
+    @Environment(\.accessibilityDifferentiateWithoutColor) var differentiateWithoutColor
     var body: some View {
-        TextField("whatever", text: $whatever)
-            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-                print("On the background")
+        HStack {
+            if differentiateWithoutColor {
+                Image(systemName: "checkmark.circle")
             }
-            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
-                print("Back to the foreground")
-            }
-            .onReceive(NotificationCenter.default.publisher(for: UIApplication.userDidTakeScreenshotNotification)) { _ in
-                print("User took a screenshot")
-            }
-            .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidShowNotification)) { _ in
-                print("keyboard is shown")
-            }
+            
+            Text("Success")
+        }
+        .padding()
+        .background(differentiateWithoutColor ? Color.black : Color.green)
+        .foregroundColor(.white)
+        .clipShape(Capsule())
     }
 }
 
