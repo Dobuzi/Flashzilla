@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D1243D0255B925F00912FF0 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1243CF255B925F00912FF0 /* Card.swift */; };
+		4D1243D5255B92CA00912FF0 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1243D4255B92CA00912FF0 /* CardView.swift */; };
 		4DA687D2255A35A9006ED9D7 /* FlashzillaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA687D1255A35A9006ED9D7 /* FlashzillaApp.swift */; };
 		4DA687D4255A35A9006ED9D7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA687D3255A35A9006ED9D7 /* ContentView.swift */; };
 		4DA687D6255A35A9006ED9D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DA687D5255A35A9006ED9D7 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D1243CF255B925F00912FF0 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		4D1243D4255B92CA00912FF0 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		4DA687CE255A35A9006ED9D7 /* Flashzilla.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashzilla.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DA687D1255A35A9006ED9D7 /* FlashzillaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashzillaApp.swift; sourceTree = "<group>"; };
 		4DA687D3255A35A9006ED9D7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -33,6 +37,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D1243CE255B925100912FF0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4D1243CF255B925F00912FF0 /* Card.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4D1243D3255B92BF00912FF0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4D1243D4255B92CA00912FF0 /* CardView.swift */,
+				4DA687D3255A35A9006ED9D7 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4DA687C5255A35A8006ED9D7 = {
 			isa = PBXGroup;
 			children = (
@@ -52,8 +73,9 @@
 		4DA687D0255A35A9006ED9D7 /* Flashzilla */ = {
 			isa = PBXGroup;
 			children = (
+				4D1243D3255B92BF00912FF0 /* View */,
+				4D1243CE255B925100912FF0 /* Model */,
 				4DA687D1255A35A9006ED9D7 /* FlashzillaApp.swift */,
-				4DA687D3255A35A9006ED9D7 /* ContentView.swift */,
 				4DA687D5255A35A9006ED9D7 /* Assets.xcassets */,
 				4DA687DA255A35A9006ED9D7 /* Info.plist */,
 				4DA687D7255A35A9006ED9D7 /* Preview Content */,
@@ -139,6 +161,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DA687D4255A35A9006ED9D7 /* ContentView.swift in Sources */,
+				4D1243D0255B925F00912FF0 /* Card.swift in Sources */,
+				4D1243D5255B92CA00912FF0 /* CardView.swift in Sources */,
 				4DA687D2255A35A9006ED9D7 /* FlashzillaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
