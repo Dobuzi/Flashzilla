@@ -8,26 +8,33 @@
 import SwiftUI
 
 struct CardView: View {
+    @State private var isShowingAnswer = false
+    
     let card: Card
     
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 25, style: .continuous)
                 .fill(Color.white)
+                .shadow(radius: 10)
             
             VStack {
                 Text(card.prompt)
                     .font(.largeTitle)
                     .foregroundColor(.black)
-                
-                Text(card.answer)
-                    .font(.title)
-                    .foregroundColor(.gray)
+                if isShowingAnswer {
+                    Text(card.answer)
+                        .font(.title)
+                        .foregroundColor(.gray)
+                }
             }
             .padding(20)
             .multilineTextAlignment(.center)
         }
         .frame(width: 450, height: 250)
+        .onTapGesture {
+            self.isShowingAnswer.toggle()
+        }
     }
 }
 

@@ -5,35 +5,31 @@
 //  Created by 김종원 on 2020/11/10.
 //
 
-import CoreHaptics
 import SwiftUI
 
-struct ContentView: View {
-    @Environment(\.accessibilityReduceMotion) var reduceMotion
-    @Environment(\.accessibilityReduceTransparency) var reduceTransparency
-    @State private var scale: CGFloat = 1
-    
-    var body: some View {
-        HStack {
-            Text("Success")
-        }
-        .padding()
-        .background(reduceTransparency ? Color.black : Color.black.opacity(0.5))
-        .foregroundColor(.white)
-        .clipShape(Capsule())
-        .scaleEffect(scale)
-        .onTapGesture(count: 1, perform: {
-            withOptionalAnimation {
-                self.scale *= 1.5
-            }
-        })
+extension View {
+    func stacked(at position: Int, in total: Int) -> some View {
+        let offset = CGFloat(total - position)
+        return self.offset(CGSize(width: offset * 20, height: offset * 20))
     }
-    
-    func withOptionalAnimation<Result>(_ animation: Animation? = .default, _ body: () throws -> Result) rethrows -> Result {
-        if UIAccessibility.isReduceMotionEnabled {
-            return try body()
-        } else {
-            return try withAnimation(animation, body)
+}
+
+struct ContentView: View {
+    @State private var cards = [Card](repeating: Card.example, count: 10)
+    var body: some View {
+        ZStack {
+            Image("background")
+                .resizable()
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all)
+            VStack {
+                ZStack {
+                    ForEach(0..<cards.count, id: \.self) { index in
+                        CardView(card: self.cards[index])
+                            .stacked(at: index, in: self.cards.count)
+                    }
+                }
+            }
         }
     }
 }
